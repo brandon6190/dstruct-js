@@ -28,4 +28,22 @@ describe('BinarySearchTree()', () => {
       assert.equal(binarySearchTree.right.left.value, 6);
     });
   });
+
+  describe('contains() method', () => {
+    it('should return true if the value is within the BST', () => {
+      binarySearchTree.add(2);
+      binarySearchTree.add(3);
+      binarySearchTree.add(7);
+
+      assert.equal(binarySearchTree.contains(7), true);
+    });
+
+    it('should return false if the value is not within the BST', () => {
+      binarySearchTree.add(2);
+      binarySearchTree.add(3);
+      binarySearchTree.add(7);
+      
+      assert.equal(binarySearchTree.contains(8), false);
+    });
+  });
 });

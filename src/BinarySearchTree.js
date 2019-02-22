@@ -26,9 +26,21 @@ class BinarySearchTree {
       }
     }
   }
-
+    /*
+      -check if value is equal to the current node value, if it is then return true
+      -else check if the value is greater than the node's value and if it is then start checking to the right,
+      -else start checking to the left of the tree
+    */
   contains(value) {
-
+    if (value === this.value) {
+      return true;
+    }
+    if (value > this.value) {
+      this.right.contains(value);
+    }
+    else {
+      this.left.contains(value);
+    }
   }
 
   depthFirstPre(callback) {
@@ -48,6 +60,14 @@ class BinarySearchTree {
   }
 
 }
+
+const bst = new BinarySearchTree(5);
+
+bst.add(2);
+bst.add(3);
+bst.add(7);
+
+console.log('BST results >>> ', bst);
 
 module.exports = {
   BinarySearchTree

@@ -32,15 +32,24 @@ class BinarySearchTree {
       -else start checking to the left of the tree
     */
   contains(value) {
-    if (value === this.value) {
-      return true;
+    let doesContain = false;
+  
+    function findValueIn(bst) {
+      if (bst !== null) {
+        if (bst.value === value) {
+          doesContain = true;
+        }
+        else if (bst.left !== undefined && value < bst.value) {
+          findValueIn(bst.left);
+        }
+        else if (bst.right !== undefined && value > bst.value) {
+          findValueIn(bst.right);
+        }
+      }
     }
-    if (value > this.value) {
-      this.right.contains(value);
-    }
-    else {
-      this.left.contains(value);
-    }
+  
+    findValueIn(this);
+    return doesContain;
   }
 
   depthFirstPre(callback) {
@@ -67,7 +76,7 @@ bst.add(2);
 bst.add(3);
 bst.add(7);
 
-console.log('BST results >>> ', bst);
+console.log('BST results >>> ', bst.contains(8));
 
 module.exports = {
   BinarySearchTree

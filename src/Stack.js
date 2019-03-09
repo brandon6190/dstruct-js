@@ -10,7 +10,10 @@ class Stack {
   }
 
   pop() {
-
+    const element = this.storage[this.index-1];
+    delete this.storage[this.index-1];
+    this.index--;
+    return element;
   }
 }
 

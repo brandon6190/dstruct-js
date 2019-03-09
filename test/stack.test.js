@@ -2,7 +2,7 @@ const { assert } = require('chai');
 const { Stack } = require('../src/Stack');
 
 describe('Stack()', () => {
-  let stack, storage;
+  let stack;
 
   beforeEach(() => {
     stack = new Stack();

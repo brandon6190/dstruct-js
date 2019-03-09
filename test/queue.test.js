@@ -19,4 +19,15 @@ describe('Queue()', () => {
     queue.enqueue(0);
     assert.equal(queue.storage['0'], 0);
   });
+
+  it('should dequeue elements from front of queue', () => {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    assert.equal(queue.dequeue(), '1');
+    assert.equal(queue.dequeue(), '2');
+  });
+
+  it('should return undefined when dequeueing empty queue', () => {
+    assert.equal(queue.dequeue(), undefined);
+  });
 });

@@ -28,4 +28,10 @@ describe('Stack()', () => {
     assert.equal(stack.pop(), 2);
     assert.equal(stack.pop(), 1);
   });
+
+  it('should return undefined when popping empty stack', () => {
+    stack.push(1);
+    stack.pop();
+    assert.equal(stack.pop(), undefined);
+  });
 });

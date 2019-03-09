@@ -5,7 +5,8 @@ class Queue {
   }
 
   enqueue(value) {
-
+    this.storage[this.index] = value;
+    this.index++;
   }
 
   dequeue() {

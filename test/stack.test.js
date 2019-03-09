@@ -21,4 +21,11 @@ describe('Stack()', () => {
     stack.push(1);
     assert.equal(stack.storage['0'], 0); 
   });
+
+  it('should pop most recently pushed element and return it', () => {
+    stack.push(1);
+    stack.push(2);
+    assert.equal(stack.pop(), 2);
+    assert.equal(stack.pop(), 1);
+  });
 });
